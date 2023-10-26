@@ -25,5 +25,10 @@ CREATE TABLE Notaslivros (
 	nota VARCHAR(10) NOT NULL
 );
 
+-- Add usuarios
+
 INSERT INTO usuarios (nome, idade, sexo, senha)
-VALUES ('ADMIN', 0, 'masculino', '0000');
+VALUES ('admin', 0, 'masculino', '0000');
+
+INSERT INTO usuarios (nome, idade, sexo, senha)
+VALUES ('felipe', 25, 'masculino', '1234');

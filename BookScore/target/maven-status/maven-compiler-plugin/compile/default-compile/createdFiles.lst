@@ -1,3 +1,10 @@
-BookScore\TelaLogin$2.class
-BookScore\TelaLogin$1.class
-BookScore\TelaLogin.class
+BookScore\Model\Login.class
+BookScore\Visual\TelaLogin$2.class
+BookScore\Visual\TelaInicial$1.class
+BookScore\Visual\TelaInicial.class
+BookScore\Banco\ConexaoBanco.class
+BookScore\Main$1.class
+BookScore\Visual\TelaLogin$3.class
+BookScore\Visual\TelaLogin.class
+BookScore\Visual\TelaLogin$1.class
+BookScore\Main.class
