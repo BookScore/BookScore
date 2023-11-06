@@ -10,6 +10,10 @@
     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
       <Color blue="0" green="0" red="0" type="rgb"/>
     </Property>
+    <Property name="resizable" type="boolean" value="false"/>
+    <Property name="size" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+      <Dimension value="[1980, 1080]"/>
+    </Property>
   </Properties>
   <SyntheticProperties>
     <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
@@ -31,30 +35,26 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="356" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                  <Component id="loginTextField" pref="361" max="32767" attributes="0"/>
-                  <Component id="senhaPassword" alignment="1" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="535" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="loginButton" min="-2" pref="300" max="-2" attributes="0"/>
+                  <Component id="senhaPassword" min="-2" pref="300" max="-2" attributes="0"/>
+                  <Component id="loginTextField" min="-2" pref="300" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
-          </Group>
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace pref="484" max="32767" attributes="0"/>
-              <Component id="loginButton" min="-2" pref="134" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="407" max="-2" attributes="0"/>
+              <EmptySpace pref="557" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="315" max="-2" attributes="0"/>
-              <Component id="loginTextField" min="-2" pref="66" max="-2" attributes="0"/>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="senhaPassword" min="-2" pref="63" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
-              <Component id="loginButton" min="-2" pref="39" max="-2" attributes="0"/>
-              <EmptySpace pref="350" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="342" max="-2" attributes="0"/>
+              <Component id="loginTextField" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
+              <Component id="senhaPassword" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+              <Component id="loginButton" min="-2" pref="38" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="262" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -62,6 +62,9 @@
   <SubComponents>
     <Component class="javax.swing.JTextField" name="loginTextField">
       <Properties>
+        <Property name="horizontalAlignment" type="int" value="0"/>
+        <Property name="alignmentX" type="float" value="0.0"/>
+        <Property name="alignmentY" type="float" value="0.0"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
             <TitledBorder title="Login"/>
@@ -91,12 +94,16 @@
     </Component>
     <Component class="javax.swing.JPasswordField" name="senhaPassword">
       <Properties>
+        <Property name="horizontalAlignment" type="int" value="0"/>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.TitledBorderInfo">
             <TitledBorder title="Senha"/>
           </Border>
         </Property>
       </Properties>
+      <AccessibilityProperties>
+        <Property name="AccessibleContext.accessibleDescription" type="java.lang.String" value=""/>
+      </AccessibilityProperties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="senhaPasswordActionPerformed"/>
       </Events>

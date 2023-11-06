@@ -33,31 +33,5 @@ public class Login {
     
     public String getSenha(){
         return senha;
-    }
-    
-    public boolean RealizaLogin(String login, String senha){
-        String sql = "SELECT * FROM usuarios WHERE nome = ? and senha = ?";
-        boolean resultado = false;
-        
-        try (Connection c =  ConexaoBanco.obtemConexao()) {
-            
-            PreparedStatement ps = c.prepareStatement(sql);
-            
-            ps.setString(1, login); 
-            ps.setString(2, senha); 
-            
-            ResultSet rs = ps.executeQuery();  
-            
-            while (rs.next()) {
-                resultado = true;
-            }
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-            
-            JOptionPane.showMessageDialog(null,"Erro ao tentar executar o banco de dados" ,"ERRO INTERNO", JOptionPane.ERROR_MESSAGE );
-        }
-        return resultado;
-    } 
-    
+    }   
 }

@@ -1,5 +1,6 @@
 package BookScore.Visual;
 
+import BookScore.Banco.ControleDados.CtrlLogin;
 import BookScore.Model.Login;
 import javax.swing.JOptionPane;
 
@@ -39,7 +40,12 @@ public class TelaLogin extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(0, 0, 0));
+        setResizable(false);
+        setSize(new java.awt.Dimension(1980, 1080));
 
+        loginTextField.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        loginTextField.setAlignmentX(0.0F);
+        loginTextField.setAlignmentY(0.0F);
         loginTextField.setBorder(javax.swing.BorderFactory.createTitledBorder("Login"));
         loginTextField.setSelectedTextColor(new java.awt.Color(51, 51, 51));
         loginTextField.addActionListener(new java.awt.event.ActionListener() {
@@ -57,6 +63,7 @@ public class TelaLogin extends javax.swing.JFrame {
             }
         });
 
+        senhaPassword.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         senhaPassword.setBorder(javax.swing.BorderFactory.createTitledBorder("Senha"));
         senhaPassword.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -69,27 +76,26 @@ public class TelaLogin extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(356, 356, 356)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addComponent(loginTextField, javax.swing.GroupLayout.DEFAULT_SIZE, 361, Short.MAX_VALUE)
-                    .addComponent(senhaPassword))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(484, Short.MAX_VALUE)
-                .addComponent(loginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 134, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(407, 407, 407))
+                .addGap(535, 535, 535)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(loginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(senhaPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(loginTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(557, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(315, 315, 315)
-                .addComponent(loginTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(senhaPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23)
-                .addComponent(loginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(350, Short.MAX_VALUE))
+                .addGap(342, 342, 342)
+                .addComponent(loginTextField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(senhaPassword)
+                .addGap(25, 25, 25)
+                .addComponent(loginButton, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(262, 262, 262))
         );
+
+        senhaPassword.getAccessibleContext().setAccessibleDescription("");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -103,7 +109,7 @@ public class TelaLogin extends javax.swing.JFrame {
         String login = loginTextField.getText();
         String senha = new String(senhaPassword.getPassword());
 
-        Login validaLogin = new Login();
+        CtrlLogin validaLogin = new CtrlLogin();
        
         boolean realizouLogin = validaLogin.RealizaLogin(login, senha);
         
@@ -111,12 +117,17 @@ public class TelaLogin extends javax.swing.JFrame {
             
            this.dispose();
            
-          new TelaInicial().setVisible(true);
-           
+          if(login.toLowerCase().equals("admin")) {
+              new TelaInicialADM().setVisible(true);
+          }
+          else{
+               new TelaInicialUsuario().setVisible(true);
+          }
+             
         }
         else if(realizouLogin == false){
         
-            JOptionPane.showMessageDialog(null,"Login ou senha estão errados ou usuário não está cadastrado" ,"Usuário não encontrado", JOptionPane.ERROR_MESSAGE );
+            JOptionPane.showMessageDialog(null,"Login ou senha estão incorretos ou usuário não está cadastrado" ,"Usuário não encontrado", JOptionPane.ERROR_MESSAGE );
         }
        
     }//GEN-LAST:event_loginButtonActionPerformed
