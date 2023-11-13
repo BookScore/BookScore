@@ -1,8 +1,8 @@
 CREATE DATABASE bookscore;
 
-use bookscore;
+USE bookscore;
 
-CREATE TABLE usuarios (
+CREATE TABLE tb_usuarios (
     id INT AUTO_INCREMENT PRIMARY KEY,
     login VARCHAR(50) NOT NULL,
     nome VARCHAR(100) NOT NULL,
@@ -14,16 +14,17 @@ CREATE TABLE usuarios (
     ativo VARCHAR(10) NOT NULL
 );
 
-CREATE TABLE livros (
+CREATE TABLE tb_livros (
     id INT AUTO_INCREMENT PRIMARY KEY,
     titulo VARCHAR(255) NOT NULL,
     autor VARCHAR(150) NOT NULL,
     tipo VARCHAR(150) NOT NULL
 );
 
-CREATE TABLE Notaslivros (
+CREATE TABLE tb_notaslivros (
     id INT AUTO_INCREMENT PRIMARY KEY,
     idLivro INT NOT NULL,
+    idUsuario INT NOT NULL,
 	nota VARCHAR(10) NOT NULL
 );
 
@@ -34,3 +35,5 @@ VALUES ('admin.admin', 'admin', 0, 'masculino', '0000', 'ativo');
 
 INSERT INTO usuarios (login, nome, idade, sexo, senha, ativo)
 VALUES ('usuario.felipe', 'felipe', 25, 'masculino', '1234', 'ativo');
+
+COLOCAR FOREKEY NO NOTASLIVROS (id do livro e do usuario)

@@ -5,14 +5,18 @@
 package BookScore.Banco.ControleDados;
 
 import BookScore.Banco.ConexaoBanco;
+import BookScore.Banco.Querys.Querys;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
 
 public class CtrlLogin {
+    
+    Querys _Querys = new Querys();
+    
     public boolean RealizaLogin(String login, String senha){
-        String sql = "SELECT * FROM usuarios WHERE nome = ? and senha = ?";
+        String sql = _Querys.SelectLogin();
         boolean resultado = false;
         
         try (Connection c =  ConexaoBanco.obtemConexao()) {

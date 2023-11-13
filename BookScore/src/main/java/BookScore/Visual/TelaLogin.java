@@ -117,7 +117,7 @@ public class TelaLogin extends javax.swing.JFrame {
             
            this.dispose();
            
-          if(login.toLowerCase().equals("admin")) {
+          if(login.toLowerCase().equals("admin.admin")) {
               new TelaInicialADM().setVisible(true);
           }
           else{

@@ -47,4 +47,29 @@ public class CtrlUsuarios {
             return false;
         }
     }
+    
+    public int pegarIdUser(String username, String senhaUser) {
+        
+        String sql = _Query.SelectUsuariosId();
+        
+        int idUser = 0;
+        
+        try (Connection c =  ConexaoBanco.obtemConexao()){
+            
+            PreparedStatement ps = c.prepareStatement(sql);
+            ps.setString(1, username);
+            ps.setString(2, senhaUser);
+
+            ResultSet resultSet = ps.executeQuery();
+            
+            if(resultSet.next()){
+                idUser = resultSet.getInt("idUser");
+            }
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        return idUser;
+    }
+    
 }

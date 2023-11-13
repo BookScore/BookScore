@@ -22,7 +22,7 @@ public class ConexaoBanco {
         }
         catch (Exception e) {
             e.printStackTrace();
-            return null;
+            return (Connection) e;
         }
     }
 }
