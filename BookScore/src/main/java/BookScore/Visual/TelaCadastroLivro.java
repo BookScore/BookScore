@@ -9,19 +9,18 @@ import BookScore.Banco.ControleDados.CtrlLivro;
 import BookScore.Banco.ControleDados.CtrlUsuarios;
 import BookScore.Model.Livro;
 import BookScore.Model.Nota;
+import BookScore.Model.Singleton;
 import BookScore.Model.Usuarios;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author clj service
- */
+
 public class TelaCadastroLivro extends javax.swing.JFrame {
 
     /**
      * Creates new form TelaCadastroLivro
      */
     public TelaCadastroLivro() {
+        super("BookScore - Cadastro de Livros");
         initComponents();
         this.setLocationRelativeTo(null);
     }
@@ -35,25 +34,28 @@ public class TelaCadastroLivro extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
+        buttonVoltarTelaInicial = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        jComboCateg = new javax.swing.JComboBox<>();
         textFieldNomeLivro = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         textFieldNomeAutor = new javax.swing.JTextField();
         buttonCadastrarLivro = new javax.swing.JButton();
-        buttonVoltarTelaInicial = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
-        jComboCateg = new javax.swing.JComboBox<>();
+        notaLivroTextField = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jLabel1.setText("Insira o nome do Livro:");
+        jPanel1.setBackground(new java.awt.Color(44, 51, 51));
 
-        buttonCadastrarLivro.setText("Cadastrar");
-        buttonCadastrarLivro.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                buttonCadastrarLivroActionPerformed(evt);
-            }
-        });
+        jPanel2.setBackground(new java.awt.Color(46, 79, 79));
 
+        buttonVoltarTelaInicial.setBackground(new java.awt.Color(14, 131, 136));
+        buttonVoltarTelaInicial.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        buttonVoltarTelaInicial.setForeground(new java.awt.Color(203, 228, 222));
         buttonVoltarTelaInicial.setText("Voltar");
         buttonVoltarTelaInicial.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -61,49 +63,125 @@ public class TelaCadastroLivro extends javax.swing.JFrame {
             }
         });
 
+        jLabel3.setForeground(new java.awt.Color(203, 228, 222));
         jLabel3.setText("Insira o nome do Autor:");
 
-        jComboCateg.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecionar Categoria ", "romance", "ficção", "técnico" }));
+        jComboCateg.setBackground(new java.awt.Color(203, 228, 222));
+        jComboCateg.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        jComboCateg.setForeground(new java.awt.Color(44, 51, 51));
+        jComboCateg.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Selecionar Categoria ", "Romance", "Ficção", "Técnico" }));
+
+        textFieldNomeLivro.setBackground(new java.awt.Color(203, 228, 222));
+        textFieldNomeLivro.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        textFieldNomeLivro.setForeground(new java.awt.Color(44, 51, 51));
+
+        jLabel1.setForeground(new java.awt.Color(203, 228, 222));
+        jLabel1.setText("Insira o nome do Livro:");
+
+        textFieldNomeAutor.setBackground(new java.awt.Color(203, 228, 222));
+        textFieldNomeAutor.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        textFieldNomeAutor.setForeground(new java.awt.Color(44, 51, 51));
+
+        buttonCadastrarLivro.setBackground(new java.awt.Color(14, 131, 136));
+        buttonCadastrarLivro.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        buttonCadastrarLivro.setForeground(new java.awt.Color(203, 228, 222));
+        buttonCadastrarLivro.setText("Cadastrar");
+        buttonCadastrarLivro.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonCadastrarLivroActionPerformed(evt);
+            }
+        });
+
+        notaLivroTextField.setBackground(new java.awt.Color(203, 228, 222));
+        notaLivroTextField.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        notaLivroTextField.setForeground(new java.awt.Color(44, 51, 51));
+
+        jLabel2.setForeground(new java.awt.Color(203, 228, 222));
+        jLabel2.setText("Dê uma nota de 0 a 10:");
+
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(203, 228, 222));
+        jLabel4.setText("Cadastro de Livro");
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap(102, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel2)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel1)
+                            .addComponent(jComboCateg, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(11, 11, 11)
+                                .addComponent(buttonVoltarTelaInicial, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(buttonCadastrarLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(11, 11, 11))
+                            .addComponent(textFieldNomeLivro, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(textFieldNomeAutor, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(notaLivroTextField, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 255, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(94, 94, 94))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addComponent(jLabel4)
+                        .addGap(142, 142, 142))))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(jLabel4)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(textFieldNomeLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(textFieldNomeAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(notaLivroTextField, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jComboCateg, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(21, 21, 21)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(buttonVoltarTelaInicial, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(buttonCadastrarLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(48, 48, 48))
+        );
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(148, Short.MAX_VALUE)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(151, 151, 151))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 390, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(30, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(136, 136, 136)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(buttonVoltarTelaInicial, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(buttonCadastrarLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(69, 69, 69)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel1)
-                            .addComponent(textFieldNomeLivro)
-                            .addComponent(textFieldNomeAutor, javax.swing.GroupLayout.DEFAULT_SIZE, 261, Short.MAX_VALUE)
-                            .addComponent(jComboCateg, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(70, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(37, 37, 37)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(textFieldNomeLivro, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(27, 27, 27)
-                .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(textFieldNomeAutor, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jComboCateg, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(buttonCadastrarLivro)
-                .addGap(18, 18, 18)
-                .addComponent(buttonVoltarTelaInicial)
-                .addContainerGap(35, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -112,37 +190,56 @@ public class TelaCadastroLivro extends javax.swing.JFrame {
     private void buttonCadastrarLivroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttonCadastrarLivroActionPerformed
         String nomeLivro = textFieldNomeLivro.getText();
         String nomeAutor = textFieldNomeAutor.getText();
+        String stringNota = notaLivroTextField.getText();
+        int notaLivro = Integer.parseInt(stringNota);
         String tipo = jComboCateg.getSelectedItem().toString();
+        
         CtrlUsuarios users = new CtrlUsuarios();
         CtrlLivro livros = new CtrlLivro();
         CntrlNota notas = new CntrlNota();
         
-        if(nomeLivro != null && nomeAutor != null){
-            if (livros.novoLivro(nomeLivro, nomeAutor, tipo)) {
-                JOptionPane.showMessageDialog(null,"Livro cadastrado com sucesso!");
+        if(nomeLivro != null || nomeAutor != null){
+            try{
+                if(!livros.existeLivro(nomeLivro)){
+                    
+                    if(notaLivro > 0 && notaLivro <= 10){
+            
+                        if (livros.novoLivro(nomeLivro, nomeAutor, tipo)) {
+                    
+                            JOptionPane.showMessageDialog(null,"Livro cadastrado com sucesso!");
 
-                int notaLivro = Integer.parseInt(JOptionPane.showInputDialog("Agora de uma nota de 0 a 10 ao livro"));
-                String loginUser = JOptionPane.showInputDialog(null,"Confirme seu login:");
-                String senhaUser = JOptionPane.showInputDialog(null,"Agora confirme sua senha:");
-                int idLivro = livros.pegarIdLivro(nomeLivro);
-                int idUser = users.pegarIdUser(loginUser, senhaUser);
+                            int idLivro = livros.pegarIdLivro(nomeLivro);
+                            int idUser = Singleton.getInstance().getIdUsuario();
+   
+                            if(notas.registrarNota(notaLivro,idUser, idLivro)) {
+                                                                
+                                 this.dispose();
+                                 
+                                 new TelaCadastroLivro().setVisible(true);
+                            }
+                            else{
+                                 JOptionPane.showMessageDialog(null,"Erro ao cadastrar livro.");
+                            }
+                        }
+                        else{
+                            JOptionPane.showMessageDialog(null,"Erro ao cadastrar livro.");
+                        }
+                    }
+                    else{
+                        JOptionPane.showMessageDialog(null,"Por favor, insira uma nota de 0 a 10!", "Nota inválida", JOptionPane.ERROR_MESSAGE);
                 
-                    if(notaLivro >= 0 && notaLivro <=10) {
-                        if(notas.registrarNota(notaLivro,idUser, idLivro)) {
-                            JOptionPane.showMessageDialog(null,"Nota registrada com sucesso!");
-                        }     
                     }
-                    else {
-                        JOptionPane.showMessageDialog(null,"Nota invalida, insira somente numeros de 0 a 10.");
-                    }
-                  
+                }else{
+                    JOptionPane.showMessageDialog(null,"Parece que o livro que você está tentando cadastrar já esta em nossos registros! \n\nTente apenas avalia-lo na 'Tela Inicial'", "Livro já cadastrado", JOptionPane.ERROR_MESSAGE);
+
+                }    
             }
-            else{
-                JOptionPane.showMessageDialog(null,"Erro ao cadastrar livro.");
-                }
+            catch(Exception e){
+                e.printStackTrace();
+            }
         }
         else {
-            JOptionPane.showMessageDialog(null,"Por favor, insira todos os campos solicitados.");
+            JOptionPane.showMessageDialog(null,"Por favor, preencha todos os campos solicitados!", "Campos vazios", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_buttonCadastrarLivroActionPerformed
 
@@ -192,7 +289,12 @@ public class TelaCadastroLivro extends javax.swing.JFrame {
     private javax.swing.JButton buttonVoltarTelaInicial;
     private javax.swing.JComboBox<String> jComboCateg;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JTextField notaLivroTextField;
     private javax.swing.JTextField textFieldNomeAutor;
     private javax.swing.JTextField textFieldNomeLivro;
     // End of variables declaration//GEN-END:variables

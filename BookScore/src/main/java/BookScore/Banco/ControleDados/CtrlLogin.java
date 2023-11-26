@@ -15,8 +15,8 @@ public class CtrlLogin {
     
     Querys _Querys = new Querys();
     
-    public boolean RealizaLogin(String login, String senha){
-        String sql = _Querys.SelectLogin();
+    public boolean realizaLogin(String login, String senha){
+        String sql = _Querys.selectLogin();
         boolean resultado = false;
         
         try (Connection c =  ConexaoBanco.obtemConexao()) {
@@ -39,4 +39,31 @@ public class CtrlLogin {
         }
         return resultado;
     } 
+    
+     public int pegarIdUser(String login, String senhaUser) {
+        
+        String sql = _Querys.selectUsuariosId();
+        
+        int idUser = 0;
+        
+        try (Connection c =  ConexaoBanco.obtemConexao()){
+            
+            PreparedStatement ps = c.prepareStatement(sql);
+            ps.setString(1, login);
+            ps.setString(2, senhaUser);
+
+            ResultSet resultSet = ps.executeQuery();
+            
+            if(resultSet.next()){
+                idUser = resultSet.getInt("id");
+            }
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+            
+             JOptionPane.showMessageDialog(null,"Erro ao tentar executar o banco de dados... Por favor tente novamente" ,"ERRO INTERNO", JOptionPane.ERROR_MESSAGE );
+
+        }
+        return idUser;
+    }
 }

@@ -18,9 +18,9 @@ public class CtrlUsuarios {
 
     Querys _Query = new Querys();
 
-    public boolean CadastraUsuarios(String login, String nome, String idade, String sexo, String senha, String tipoLivroFavorito1, String tipoLivroFavorito2, String ativo) {
+    public boolean cadastraUsuarios(String login, String nome, String idade, String sexo, String senha, String tipoLivroFavorito1, String tipoLivroFavorito2) {
 
-        String sql = _Query.InsertUsuarios();
+        String sql = _Query.insertUsuarios();
 
         try (Connection c = ConexaoBanco.obtemConexao()) {
 
@@ -33,7 +33,7 @@ public class CtrlUsuarios {
             ps.setString(5, senha);
             ps.setString(6, tipoLivroFavorito1);
             ps.setString(7, tipoLivroFavorito2);
-            ps.setString(8, ativo);
+             ps.setString(8, "ativo");
 
             int rs = ps.executeUpdate();
 
@@ -42,34 +42,10 @@ public class CtrlUsuarios {
         } catch (Exception e) {
             e.printStackTrace();
 
-            JOptionPane.showMessageDialog(null, "Erro ao tentar cadastrar usuario no banco de dados", "ERRO INTERNO", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Erro ao tentar cadastrar usuário no banco de dados", "ERRO INTERNO", JOptionPane.ERROR_MESSAGE);
 
             return false;
         }
-    }
-    
-    public int pegarIdUser(String username, String senhaUser) {
-        
-        String sql = _Query.SelectUsuariosId();
-        
-        int idUser = 0;
-        
-        try (Connection c =  ConexaoBanco.obtemConexao()){
-            
-            PreparedStatement ps = c.prepareStatement(sql);
-            ps.setString(1, username);
-            ps.setString(2, senhaUser);
-
-            ResultSet resultSet = ps.executeQuery();
-            
-            if(resultSet.next()){
-                idUser = resultSet.getInt("idUser");
-            }
-        }
-        catch (Exception e) {
-            e.printStackTrace();
-        }
-        return idUser;
     }
     
 }
